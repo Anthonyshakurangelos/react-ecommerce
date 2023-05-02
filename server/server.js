@@ -1,6 +1,6 @@
 const express = require('express');
 const http = require('http'); //import http module
-const socketIO = require('socket.io'); //import socketIO module
+// const socketIO = require('socket.io'); //import socketIO module
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
@@ -9,7 +9,7 @@ const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 const app = express(); //creates an instance of an express server
 // import the socket.io server connection
-const connectSocketServer = require('./config/socket')
+// const connectSocketServer = require('./config/socket')
 require('dotenv').config()
 
 const apolloServer = new ApolloServer({
@@ -22,7 +22,7 @@ const apolloServer = new ApolloServer({
 // create server instance using http module with the app instance
 const server = http.createServer(app); 
 // attach Socket.io to the server and apollo server
-const io = connectSocketServer(server,apolloServer);
+// const io = connectSocketServer(server,apolloServer);
 
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
@@ -40,11 +40,11 @@ app.get('/', (req, res) => {
 
 //stripe start 
 // This is your test secret API key.
-const stripe = require('stripe')('sk_test_51MvvjSH6SVkRFfSTatGzg2d2NKOeeYorl900gptT3ESf8I8lyQqhsnFFZ42VHO8DLr9eBCMVi8cvsZLFhFINUTxg00ISUVIrMX');
-app.use(express.static('public'));
+// const stripe = require('stripe')('sk_test_51MvvjSH6SVkRFfSTatGzg2d2NKOeeYorl900gptT3ESf8I8lyQqhsnFFZ42VHO8DLr9eBCMVi8cvsZLFhFINUTxg00ISUVIrMX');
+// app.use(express.static('public'));
 
 // this is for live site 
-const YOUR_DOMAIN = 'https://logic-lounge-production.up.railway.app/#/paymentprocessed';
+// const YOUR_DOMAIN = 'https://logic-lounge-production.up.railway.app/#/paymentprocessed';
 // this is for local 
 // const YOUR_DOMAIN = 'http://localhost:3000/#/paymentprocessed';
 
